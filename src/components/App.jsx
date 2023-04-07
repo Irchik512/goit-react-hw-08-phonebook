@@ -1,42 +1,31 @@
-import Section from './Section/Section';
-import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import Filter from './Filter/Filter';
-import Notification from './Notification/Notification';
-import { toast } from 'react-toastify';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectContactsValue ,selectIsLoading, selectError } from 'redux/selectors';
-import {getAllContacts} from 'redux/operations'
-import { useEffect } from 'react';
+import { Routes, Route} from 'react-router-dom';
+import { Layout } from 'views/Layout';
+import { lazy } from 'react';
 
-export default function App() {
-  const contactsList = useSelector(selectContactsValue);
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-  
-  useEffect(() => {
-    dispatch(getAllContacts());
-  }, [dispatch]);
+const HomeView = lazy(() =>
+  import('../views/HomeView/HomeView' /* WebpackChunkName: "HomeView " */)
+);
+const LoginView = lazy(() =>
+  import('../views/LoginView/LoginView' /* WebpackChunkName: "LoginView" */)
+);
+const RegisterView = lazy(() =>
+  import(
+    '../views/RegisterView/RegisterView' /* WebpackChunkName: "RegisterView" */
+  )
+);
+const ContactsView = lazy(() => import('../views/ContactsView/ContactsView' /* WebpackChunkName: "ContactsView" */));
+const NotFoundView = lazy(() => import('../views/NotFoundView/NotFoundView' /* WebpackChunkName: "NotFoundView" */));
+
+export const App = () => {
   return (
-    <>
-      <Section> 
-        <h2>Phonebook</h2>
-        <ContactForm />
-      </Section>
-      <Section>
-        <h2>Contacts</h2>   
-        {isLoading && !error && <p>Request in progress...</p>}  
-        {contactsList.length < 1 ? (
-          <p>There is no contact yet.</p>
-        ) : (
-          <>
-            <Filter />             
-            <ContactList />
-          </>
-        )}
-        {error !== null && <Notification>{toast.error(error)}</Notification>}   
-      </Section>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomeView />} />
+        <Route path="loginView/" element={<LoginView />} />
+        <Route path="registerView/" element={<RegisterView />}/>
+        <Route path="contactsView/" element={<ContactsView />} />
+        <Route path="*" element={<NotFoundView />} />
+      </Route>
+    </Routes>
   );
-}
+};
