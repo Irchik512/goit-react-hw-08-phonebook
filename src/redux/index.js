@@ -1,4 +1,4 @@
 export * from './store';
-export * from './contactsSlice';
-export * from './filterSlice';
-export * from './selectors';
+export * from './contacts/contactsSlice';
+export * from './filter/filterSlice';
+export * from './contacts/contactsSelectors';

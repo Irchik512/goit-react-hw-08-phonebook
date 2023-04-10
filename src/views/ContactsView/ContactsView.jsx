@@ -5,8 +5,8 @@ import Filter from 'component/Filter/Filter';
 import Notification from 'component/Notification/Notification';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContactsValue ,selectIsLoading, selectError } from 'redux/selectors';
-import {getAllContacts} from 'redux/operations'
+import { selectContactsValue ,selectIsLoading, selectError } from 'redux/contacts/contactsSelectors';
+import {getAllContacts} from 'redux/contacts/contactsOperations'
 import { useEffect } from 'react';
 
 export default function ContactsView() {

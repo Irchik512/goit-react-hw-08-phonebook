@@ -1,7 +1,7 @@
 import { Input, Label } from 'components/ContactForm/ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { apdateFilter } from 'redux/filterSlice';
-import { selectFilterValue } from 'redux/selectors';
+import { apdateFilter } from 'redux/filter/filterSlice';
+import { selectFilterValue } from 'redux/contacts/contactsSelectors';
 
 export default function Filter() {
   const filterValue = useSelector(selectFilterValue);
