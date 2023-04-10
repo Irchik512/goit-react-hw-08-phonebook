@@ -1,5 +1,5 @@
 import { Routes, Route} from 'react-router-dom';
-import { Layout } from 'views/Layout/Layout';
+import  Layout  from 'views/Layout/Layout';
 import { lazy } from 'react';
 
 const HomeView = lazy(() =>
@@ -16,14 +16,14 @@ const RegisterView = lazy(() =>
 const ContactsView = lazy(() => import('../views/ContactsView/ContactsView' /* WebpackChunkName: "ContactsView" */));
 const NotFoundView = lazy(() => import('../views/NotFoundView/NotFoundView' /* WebpackChunkName: "NotFoundView" */));
 
-export const App = () => {
+export default function App () {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomeView />} />
-        <Route path="loginView/" element={<LoginView />} />
-        <Route path="registerView/" element={<RegisterView />}/>
-        <Route path="contactsView/" element={<ContactsView />} />
+        <Route path="login" element={<LoginView />} />
+        <Route path="register" element={<RegisterView />}/>
+        <Route path="contacts" element={<ContactsView />} />
         <Route path="*" element={<NotFoundView />} />
       </Route>
     </Routes>
