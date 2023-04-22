@@ -1,6 +1,9 @@
 import { Routes, Route} from 'react-router-dom';
 import  Layout  from 'views/Layout/Layout';
 import { lazy } from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { refresh } from 'redux/auth';
 
 const HomeView = lazy(() =>
   import('../views/HomeView/HomeView' /* WebpackChunkName: "HomeView " */)
@@ -17,6 +20,10 @@ const ContactsView = lazy(() => import('../views/ContactsView/ContactsView' /* W
 const NotFoundView = lazy(() => import('../views/NotFoundView/NotFoundView' /* WebpackChunkName: "NotFoundView" */));
 
 export default function App () {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refresh());
+  }, [dispatch]);
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
