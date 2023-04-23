@@ -28,14 +28,14 @@ export default function ContactsView() {
       <Section>
         <h2>Contacts</h2>   
         {isLoading && !error && <p>Request in progress...</p>}
-        {/* {contactsList.length < 1 ? (
+        {contactsList.length < 1 ? (
           <p>There is no contact yet.</p>
-        ) : ( */}
+        ) : (
           <>
             <Filter />             
             <ContactList />
           </>
-        {/* )} */}
+        )}
         {error !== null && <Notification>{toast.error(error)}</Notification>}   
       </Section>
     </>
