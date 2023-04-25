@@ -8,7 +8,7 @@ return(
   <PositionWraper>
     <AppBar/>
     <Main>
-      <Container>
+      <Container bg={"#f3e6b5b3"} h={'100%'}>
         <Suspense fallback={"almost done..."}>
           <Outlet/>
         </Suspense>
