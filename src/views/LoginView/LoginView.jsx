@@ -24,16 +24,14 @@ export default function LoginView() {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(logIn({email, password}));
-    setEmail('');
-    setPassword('');  
+    dispatch(logIn({email, password})); 
   };
   return(
     <Sections title='Login form'>
       <Form onSubmit={handleSubmit}>
         <VStack>
-          <Input name="email" type='email' placeholder='email' size='md'  onChange={handleChange}/>
-          <Input name="password" type='text' placeholder='password' size='md' onChange={handleChange}/>
+          <Input name='email' type='email' placeholder='email' size='md'  onChange={handleChange}/>
+          <Input name='password' type='text' placeholder='password' size='md' onChange={handleChange}/>
           <Button colorScheme='teal' variant='outline' type='submit'>
             Button
           </Button>

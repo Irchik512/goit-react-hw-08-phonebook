@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom"
+import { NavLink } from 'react-router-dom';
+import { useAuth } from 'hooks/useAuth';
 
 export default function Navigation() {
+  const { isLoggedIn } = useAuth();
+
 return(
   <nav>
-    <Link to='/'>HOME</Link>
-    {' '}
-    <Link to='/contacts'>Contacts</Link>
+    <NavLink to='/'>HOME</NavLink>
+    {isLoggedIn && (<NavLink to='/contacts'>Contacts</NavLink>)}
   </nav>
   )  
 };
