@@ -1,18 +1,25 @@
 import AuthNav from "components/AuthNav/AuthNav";
-import  Navigation  from "components/Navigation/Navigation";
+import { NavLink } from 'react-router-dom';
 import UserMenu from "components/UserMenu/UserMenu";
-import { HStack } from '@chakra-ui/react'
 import { useAuth } from 'hooks/useAuth';
+import { Container, Flex,} from "@chakra-ui/react";
+import {Header, Nav}  from './AppBar.styled';
+
+
 export default function AppBar() {
   const { isLoggedIn } = useAuth();
+
   return(
-   <header>
-      <HStack>
-        <Navigation />
-        {isLoggedIn? <UserMenu/> : <AuthNav />}
-        
-        
-      </HStack>
-   </header>
+   <Header>
+    <Container display="flex" justifyContent="space-between">
+    <Nav>
+      <NavLink to='/'>HOME</NavLink>
+      {isLoggedIn && (<NavLink to='/contacts'>CONTACTS</NavLink>)}
+    </Nav>
+    <Flex minW={'250px'} justify={"space-between"}>
+      {isLoggedIn? <UserMenu/> : <AuthNav />}
+    </Flex>
+    </Container>
+   </Header>
   )
 }

@@ -1,23 +1,17 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled'
 
 export const Contact = styled.li`
   box-sizing: border-box;
-  width: 360px;
+  width: 400px;
   text-align: start;
   border-radius: 4px;
   box-shadow: 0px 0px 1px 1px rgb(0 0 0 / 15%);
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: space-between;
+  align-content: space-between;
+  align-items: stretch;
+  flex-wrap: nowrap;
   padding: 10px;
   >p { margin: 0;}
- 
-  @media screen and (max-width: 424px) {
-    flex-direction: column;
-    width: 280px;
-  };
-
-  @media screen and (min-width: 1024px) {
-    width: 380px;
-
 `;
