@@ -74,7 +74,7 @@ export default function ContactForm() {
           type="submit"
           loadingText='Submitting'
           colorScheme='teal'
-          variant='outline'
+          variant='solid'
         >Submit</Button>
       </Form>
     </Center>

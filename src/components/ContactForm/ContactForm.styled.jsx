@@ -4,36 +4,20 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   max-width: 350px;
-  border: 2px solid gray;
+  border: 2px solid teal;
   margin 0 auto;
   padding: 15px;
+  & input{
+    background-color:#c1dbdbba;
+    border-color: #337088e8;
+    &:hover{
+      border-color: #55b7c3;
+    };
+  };
+
 `;
 
 export const Label = styled.label`
   width: 100%;
   margin-bottom: 20px;
-`;
-
-export const Input = styled.input`
-  box-sizing: border-box;
-  width: 100%;
-  height: 30px;
-  max-width: 350px;
-  margin: 0 auto;
-`;
-
-export const Button = styled.button`
-  font-family: inherit;
-  display: block;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  margin: ${props => (props.type === 'submit' ? '0 auto' : '0')};
-  max-width: 100%;
-  overflow: hidden;
-  width: fit-content;
-   {
-    background-color: ${props =>
-      props.type === 'submit' ? '#ff8100ba' : '#009688'};
-  }
 `;

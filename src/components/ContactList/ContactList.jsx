@@ -24,9 +24,9 @@ export default function ContactList() {
     <Wrap spacing='4px'justify={'center'} flexWrap={'nowrap'} flexDir={'column'} >
       {contactsList.map(({id, name, number,}) => (
         <WrapItem justify={'center'} key={id}>
-        <Card w='xs'  p={'12px'} justify={'space-between'} flexWrap={'nowrap'} flexDir={'colum'}  >
+        <Card w='xs'  p={'12px'} justify={'space-between'} flexWrap={'nowrap'} flexDir={'colum'} backgroundColor={'#c1dbdbba'} >
               <Flex gap='4' alignItems='center' >
-                <Avatar/>
+                <Avatar bg='blue.500'  />
                 <Box alignItems={'center'} maxW={'180px'}  overflow={'clip'}>
                   <Heading size='sm'>{name}</Heading>
                   <Text>{number}</Text>
