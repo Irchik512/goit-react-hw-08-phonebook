@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Button, Input, VStack } from '@chakra-ui/react'
-import { Form } from 'components/ContactForm/ContactForm.styled'
+import { Center, FormControl, Input, Button } from "@chakra-ui/react";
+import { Form } from '../RegisterView/RegisterView.styled'
 import { logIn } from 'redux/auth';
 import Sections from 'components/Section/Section';
 export default function LoginView() {
@@ -28,15 +28,17 @@ export default function LoginView() {
   };
   return(
     <Sections title='Login form'>
-      <Form onSubmit={handleSubmit}>
-        <VStack>
-          <Input name='email' type='email' placeholder='email' size='md'  onChange={handleChange}/>
-          <Input name='password' type='text' placeholder='password' size='md' onChange={handleChange}/>
-          <Button colorScheme='teal' variant='outline' type='submit'>
-            Button
-          </Button>
-        </VStack>
-      </Form>
+      <Center>
+        <Form onSubmit={handleSubmit}>
+        <FormControl isRequired>
+            <Input name='email' type='email' placeholder='email' size='md'  onChange={handleChange}/>
+            <Input name='password' type='password' placeholder='password' size='md' onChange={handleChange}/>
+          </FormControl>
+            <Button colorScheme='teal' variant='solid' type='submit'>
+              Submit
+            </Button>
+        </Form>
+      </Center>
     </Sections>
   )
 };

@@ -2,7 +2,7 @@ import AuthNav from "components/AuthNav/AuthNav";
 import { NavLink } from 'react-router-dom';
 import UserMenu from "components/UserMenu/UserMenu";
 import { useAuth } from 'hooks/useAuth';
-import { Container, Flex} from "@chakra-ui/react";
+import { Container, HStack} from "@chakra-ui/react";
 import {Header, Nav}  from './AppBar.styled';
 
 
@@ -16,9 +16,8 @@ export default function AppBar() {
       <NavLink to='/'>HOME</NavLink>
       {isLoggedIn && (<NavLink to='/contacts'>CONTACTS</NavLink>)}
     </Nav>
-    <Flex minW={'150px'} justify={"space-between"}>
-      {isLoggedIn? <UserMenu/> : <AuthNav />}
-    </Flex>
+    <HStack spacing='24px'>      {isLoggedIn? <UserMenu/> : <AuthNav />}
+    </HStack>
     </Container>
    </Header>
   )
