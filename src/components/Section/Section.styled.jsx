@@ -3,12 +3,8 @@ import styled from '@emotion/styled'
 export const Section = styled.section`
   width: 100%;
   font-family: sans-serif;
-`;
-export const Container = styled.div`
-  box-sizing: border-box;
-  padding: 0 20px;
-  width: 100%;
-  text-align: center;
+  padding: 30px 0;
+
 `;
 
 export const Title = styled.h2`

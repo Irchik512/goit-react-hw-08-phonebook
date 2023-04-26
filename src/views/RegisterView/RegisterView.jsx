@@ -1,5 +1,6 @@
-import { FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
-import { Form } from "components/ContactForm/ContactForm.styled";
+import { Center, FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
+import { Form } from "./RegisterView.styled";
+import Sections from "components/Section/Section";
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {register} from 'redux/auth'
@@ -35,19 +36,23 @@ console.log({name, email, password});
     setPassword('');  
   };
   return(
-    <Form  onSubmit={handleSubmit}>
-      <FormControl isRequired>
-        <FormLabel>Name</FormLabel>
-        <Input name="name" type='text' placeholder='name' size='md' onChange={handleChange} />
-        <FormLabel>Email</FormLabel>
-        <Input name="email" type='email' placeholder='email' size='md' onChange={handleChange} />
-        <FormLabel>Password</FormLabel>
-        <Input name="password" type='text' placeholder='password' size='md' onChange={handleChange} />
-      </FormControl>
-      <Button type="submit" colorScheme='teal' variant='outline'>
-            Button
-      </Button>
-      </Form>
+    <Sections>
+      <Center>
+        <Form  onSubmit={handleSubmit}>
+          <FormControl isRequired>
+            <FormLabel>Name</FormLabel>
+            <Input name="name" type='text' placeholder='name' size='md' onChange={handleChange} />
+            <FormLabel>Email</FormLabel>
+            <Input name="email" type='email' placeholder='email' size='md' onChange={handleChange} />
+            <FormLabel>Password</FormLabel>
+            <Input name="password" type='text' placeholder='password' size='md' onChange={handleChange} />
+          </FormControl>
+          <Button type="submit" colorScheme='teal' variant='solid'>
+            Submit
+          </Button>
+        </Form>
+      </Center>
+    </Sections>
       
   )
 };
