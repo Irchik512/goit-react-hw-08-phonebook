@@ -5,8 +5,12 @@ import Filter from 'components/Filter/Filter';
 import Notification from 'components/Notification/Notification';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContactsValue ,selectIsLoading, selectError } from 'redux/contacts/selectors';
-import {getAllContacts} from 'redux/contacts/operations'
+import {
+  selectContactsValue,
+  selectIsLoading,
+  selectError,
+} from 'redux/contacts/selectors';
+import { getAllContacts } from 'redux/contacts/operations';
 import { useEffect } from 'react';
 
 export default function ContactsView() {
@@ -14,30 +18,30 @@ export default function ContactsView() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  
+
   useEffect(() => {
     dispatch(getAllContacts());
   }, [dispatch]);
 
   return (
-    <>
-      <Section> 
-        <h2>Phonebook</h2>
+    <Section title="Phonebook">
+      <Section >
+        <h3>Add new contact</h3>
         <ContactForm />
       </Section>
-      <Section>
-        <h2>Contacts</h2>   
-        {isLoading && !error && <p>Request in progress...</p>}
-        {contactsList.length < 1 ? (
-          <p>There is no contact yet.</p>
-        ) : (
-          <>
-            <Filter />             
-            <ContactList />
-          </>
-        )}
-        {error !== null && <Notification>{toast.error(error)}</Notification>}   
+      <Section >
+      <h3>Find your contact</h3>
+        <Filter />
       </Section>
-    </>
+      <Section>
+        <h3>All your contacts</h3>
+        {isLoading && !error && <p>Request in progress...</p>}
+        {contactsList.length > 1 &&(
+          <ContactList />
+        )}
+      </Section>
+      {error !== null && <Notification>{toast.error(error)}</Notification>}
+    </Section>
+
   );
 }
