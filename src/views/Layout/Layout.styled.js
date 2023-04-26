@@ -16,10 +16,3 @@ export const Main = styled.main`
   background-attachment: fixed; 
   background-size: cover;
 `;
-export const PositionWraper = styled.div`
-  display: grid;
-  align-content: space-between;
-  min-height: 100vh;
-  box-sizing: border-box;
-  grid-template-colums: 59px 1fr 59px;
-`
