@@ -36,7 +36,7 @@ export default function ContactsView() {
       <Section>
         <h3>All your contacts</h3>
         {isLoading && !error && <p>Request in progress...</p>}
-        {contactsList.length > 1 &&(
+        {contactsList.length > 0 &&(
           <ContactList />
         )}
       </Section>
